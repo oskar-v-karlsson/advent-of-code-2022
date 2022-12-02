@@ -2,13 +2,13 @@ package main
 
 import (
 	"bufio"
-	"fmt"
 	"log"
 	"os"
 	"strconv"
 )
 
-func CalorieCount() {
+// Counts calories of individual elves and returns the calory count of the elf carrying the most
+func CalorieCount() int {
 	f, err := os.Open("input.txt")
 	if err != nil {
 		log.Fatal(err)
@@ -37,5 +37,5 @@ func CalorieCount() {
 		sum += i
 	}
 
-	fmt.Println(largest)
+	return largest
 }
