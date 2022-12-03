@@ -33,3 +33,39 @@ func identicalPriority(contents string) int {
 
 	return 0
 }
+
+func SumGroupPriority() int {
+	s := getScanner()
+	defer closeOS()
+
+	sum := 0
+	iterator := 0
+
+	group := make([]string, 3)
+
+	for s.Scan() {
+		group[iterator] = s.Text()
+		if iterator == 2 {
+			sum += groupPriority(group)
+			iterator = 0
+			continue
+		}
+		iterator++
+	}
+
+	return sum
+}
+
+// Returns the priority of the identical badge in the group
+func groupPriority(group []string) int {
+	for _, char := range group[0] {
+		if bytes.ContainsRune([]byte(group[1]), char) && bytes.ContainsRune([]byte(group[2]), char) {
+			if unicode.IsLower(char) {
+				return (int(char) - 96)
+			}
+			return (int(char) - 38)
+		}
+	}
+
+	return 0
+}
