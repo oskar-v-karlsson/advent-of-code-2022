@@ -21,6 +21,21 @@ func SumFullOverlaps() int {
 	return sum
 }
 
+func SumPartialOverlaps() int {
+	s := getScanner("input.txt")
+	defer closeOS()
+
+	sum := 0
+
+	for s.Scan() {
+		boundA, boundB := getPairBounds(strings.Split(s.Text(), ","))
+		if checkPartialOverlap(boundA, boundB) {
+			sum += 1
+		}
+	}
+	return sum
+}
+
 // Takes a string slice with the input format {X-Y, Z-W} and returns a string slice with each range expanded
 func getPairBounds(input []string) ([]int, []int) {
 	boundA := make([]int, 2)
@@ -59,4 +74,9 @@ func checkFullOverlap(boundA, boundB []int) bool {
 	default:
 		return false
 	}
+}
+
+// Returns true if one of the ranges partially overlap the other
+func checkPartialOverlap(boundA, boundB []int) bool {
+	return boundA[0] <= boundB[1] && boundA[1] >= boundB[0]
 }
