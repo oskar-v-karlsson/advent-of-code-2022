@@ -1,13 +1,15 @@
-package utils
+package solver
 
 import (
 	"bytes"
 	"unicode"
+
+	"github.com/Zairian/advent-of-code-2022/day03/utils"
 )
 
-func SumIdenticalPriorities() int {
-	s := getScanner()
-	defer closeOS()
+func sumIdenticalPriorities() int {
+	s := utils.GetScanner()
+	defer utils.CloseOS()
 
 	sum := 0
 
@@ -34,9 +36,9 @@ func identicalPriority(contents string) int {
 	return 0
 }
 
-func SumGroupPriority() int {
-	s := getScanner()
-	defer closeOS()
+func sumGroupPriority() int {
+	s := utils.GetScanner()
+	defer utils.CloseOS()
 
 	sum := 0
 	iterator := 0

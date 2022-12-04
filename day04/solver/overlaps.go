@@ -1,14 +1,16 @@
-package utils
+package solver
 
 import (
 	"log"
 	"strconv"
 	"strings"
+
+	"github.com/Zairian/advent-of-code-2022/utils"
 )
 
-func SumFullOverlaps() int {
-	s := getScanner("input.txt")
-	defer closeOS()
+func sumFullOverlaps() int {
+	s := utils.GetScanner("input.txt")
+	defer utils.CloseOS()
 
 	sum := 0
 
@@ -21,9 +23,9 @@ func SumFullOverlaps() int {
 	return sum
 }
 
-func SumPartialOverlaps() int {
-	s := getScanner("input.txt")
-	defer closeOS()
+func sumPartialOverlaps() int {
+	s := utils.GetScanner("input.txt")
+	defer utils.CloseOS()
 
 	sum := 0
 

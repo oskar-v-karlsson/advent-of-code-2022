@@ -1,8 +1,8 @@
 package main
 
-import "github.com/Zairian/advent-of-code-2022/day04/solutions"
+import "github.com/Zairian/advent-of-code-2022/day04/solver"
 
 func main() {
-	solutions.Solve1()
-	solutions.Solve2()
+	solver.Solve1()
+	solver.Solve2()
 }

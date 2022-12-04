@@ -8,7 +8,7 @@ import (
 
 var file *os.File
 
-func getScanner() *bufio.Scanner {
+func GetScanner() *bufio.Scanner {
 	file := openOS()
 	return bufio.NewScanner(file)
 }
@@ -21,6 +21,6 @@ func openOS() *os.File {
 	return file
 }
 
-func closeOS() {
+func CloseOS() {
 	file.Close()
 }
