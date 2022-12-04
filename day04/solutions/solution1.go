@@ -7,5 +7,5 @@ import (
 )
 
 func Solve1() {
-	fmt.Printf("Amount of full overlaps: %v\n", utils.SumOverlaps())
+	fmt.Printf("Amount of full overlaps: %v\n", utils.SumFullOverlaps())
 }

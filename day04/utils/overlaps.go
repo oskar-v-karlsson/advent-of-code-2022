@@ -6,15 +6,15 @@ import (
 	"strings"
 )
 
-func SumOverlaps() int {
+func SumFullOverlaps() int {
 	s := getScanner("input.txt")
 	defer closeOS()
 
 	sum := 0
 
 	for s.Scan() {
-		pair := expandPair(strings.Split(s.Text(), ","))
-		if checkOverlap(pair) {
+		boundA, boundB := getPairBounds(strings.Split(s.Text(), ","))
+		if checkFullOverlap(boundA, boundB) {
 			sum += 1
 		}
 	}
@@ -22,16 +22,15 @@ func SumOverlaps() int {
 }
 
 // Takes a string slice with the input format {X-Y, Z-W} and returns a string slice with each range expanded
-func expandPair(input []string) []string {
-	expandedPair := make([]string, 2)
+func getPairBounds(input []string) ([]int, []int) {
+	boundA := make([]int, 2)
+	boundB := make([]int, 2)
 
-	lowerBoundA, upperBoundA := getBounds(input[0])
-	expandedPair[0] = convRangeToString(lowerBoundA, upperBoundA)
+	boundA[0], boundA[1] = getBounds(input[0])
 
-	lowerBoundB, upperBoundB := getBounds(input[1])
-	expandedPair[1] = convRangeToString(lowerBoundB, upperBoundB)
+	boundB[0], boundB[1] = getBounds(input[1])
 
-	return expandedPair
+	return boundA, boundB
 }
 
 // Returns the lower and upper bound from a string with the format X-Y
@@ -50,22 +49,14 @@ func getBounds(s string) (int, int) {
 	return lowerBound, upperBound
 }
 
-// Converts a lower bound and an upper bound to a string eg. "3" "4" "5" "6" "7"
-func convRangeToString(lowerBound, upperBound int) string {
-	s := ""
-	for i := lowerBound; i <= upperBound; i++ {
-		s += "\""
-		s += strconv.Itoa(i)
-		s += "\" "
-	}
-	return s
-}
-
 // Returns true if one of the ranges fully overlap the other
-func checkOverlap(pair []string) bool {
-	if len([]rune(pair[0])) < len([]rune(pair[1])) {
-		return strings.Contains(pair[1], pair[0])
-	} else {
-		return strings.Contains(pair[0], pair[1])
+func checkFullOverlap(boundA, boundB []int) bool {
+	switch {
+	case boundA[0] >= boundB[0] && boundA[1] <= boundB[1]:
+		return true
+	case boundB[0] >= boundA[0] && boundB[1] <= boundA[1]:
+		return true
+	default:
+		return false
 	}
 }
