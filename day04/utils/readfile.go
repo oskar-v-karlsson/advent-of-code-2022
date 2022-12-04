@@ -8,13 +8,13 @@ import (
 
 var file *os.File
 
-func getScanner() *bufio.Scanner {
-	file := openOS()
+func getScanner(filename string) *bufio.Scanner {
+	file := openOS(filename)
 	return bufio.NewScanner(file)
 }
 
-func openOS() *os.File {
-	file, err := os.Open("input.txt")
+func openOS(filename string) *os.File {
+	file, err := os.Open(filename)
 	if err != nil {
 		log.Fatal(err)
 	}
