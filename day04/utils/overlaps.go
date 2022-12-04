@@ -36,7 +36,7 @@ func SumPartialOverlaps() int {
 	return sum
 }
 
-// Takes a string slice with the input format {X-Y, Z-W} and returns a string slice with each range expanded
+// Returns the bounds of each range
 func getPairBounds(input []string) ([]int, []int) {
 	boundA := make([]int, 2)
 	boundB := make([]int, 2)
