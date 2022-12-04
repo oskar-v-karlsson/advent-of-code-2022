@@ -1,4 +1,4 @@
-package utils
+package solver
 
 import (
 	"bufio"
@@ -6,18 +6,14 @@ import (
 	"os"
 	"sort"
 	"strconv"
+
+	"github.com/Zairian/advent-of-code-2022/utils"
 )
 
 // Counts calories of individual elves and returns the calory count of the elf carrying the most
-func CalorieCount() int {
-	f, err := os.Open("input.txt")
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	defer f.Close()
-
-	s := bufio.NewScanner(f)
+func calorieCount() int {
+	s := utils.GetScanner("./day01/input.txt")
+	defer utils.CloseOS()
 
 	largest := 0
 	sum := 0
@@ -42,8 +38,8 @@ func CalorieCount() int {
 }
 
 // Count calories of individual elves and returns the sum of the largest three
-func CalorieCountThree() int {
-	f, err := os.Open("input.txt")
+func calorieCountThree() int {
+	f, err := os.Open("./day01/input.txt")
 	if err != nil {
 		log.Fatal(err)
 	}

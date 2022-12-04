@@ -9,7 +9,7 @@ import (
 )
 
 func sumFullOverlaps() int {
-	s := utils.GetScanner("input.txt")
+	s := utils.GetScanner("./day04/input.txt")
 	defer utils.CloseOS()
 
 	sum := 0
@@ -24,7 +24,7 @@ func sumFullOverlaps() int {
 }
 
 func sumPartialOverlaps() int {
-	s := utils.GetScanner("input.txt")
+	s := utils.GetScanner("./day04/input.txt")
 	defer utils.CloseOS()
 
 	sum := 0

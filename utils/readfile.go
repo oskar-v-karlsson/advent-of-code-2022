@@ -2,6 +2,7 @@ package utils
 
 import (
 	"bufio"
+	"fmt"
 	"log"
 	"os"
 )
@@ -9,6 +10,7 @@ import (
 var file *os.File
 
 func GetScanner(filepath string) *bufio.Scanner {
+	fmt.Println(os.Getwd())
 	file := openOS(filepath)
 	return bufio.NewScanner(file)
 }

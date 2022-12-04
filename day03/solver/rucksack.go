@@ -4,11 +4,11 @@ import (
 	"bytes"
 	"unicode"
 
-	"github.com/Zairian/advent-of-code-2022/day03/utils"
+	"github.com/Zairian/advent-of-code-2022/utils"
 )
 
 func sumIdenticalPriorities() int {
-	s := utils.GetScanner()
+	s := utils.GetScanner("./day03/input.txt")
 	defer utils.CloseOS()
 
 	sum := 0
@@ -37,7 +37,7 @@ func identicalPriority(contents string) int {
 }
 
 func sumGroupPriority() int {
-	s := utils.GetScanner()
+	s := utils.GetScanner("./day03/input.txt")
 	defer utils.CloseOS()
 
 	sum := 0

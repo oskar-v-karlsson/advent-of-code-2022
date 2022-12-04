@@ -1,10 +1,12 @@
-package utils
+package solver
 
 import (
 	"bufio"
 	"log"
 	"os"
 	"strings"
+
+	"github.com/Zairian/advent-of-code-2022/utils"
 )
 
 var scores = map[string]int{
@@ -17,15 +19,9 @@ var scores = map[string]int{
 	"Z": 3,
 }
 
-func CalculateScore() int {
-	f, err := os.Open("input.txt")
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	defer f.Close()
-
-	s := bufio.NewScanner(f)
+func calculateScore() int {
+	s := utils.GetScanner("./day02/input.txt")
+	defer utils.CloseOS()
 
 	totalScore := 0
 
@@ -54,8 +50,8 @@ func checkResults(h []int) int {
 	}
 }
 
-func CalculateTrueScore() int {
-	f, err := os.Open("input.txt")
+func calculateTrueScore() int {
+	f, err := os.Open("./day02/input.txt")
 	if err != nil {
 		log.Fatal(err)
 	}
