@@ -9,7 +9,7 @@ import (
 	"github.com/Zairian/advent-of-code-2022/utils"
 )
 
-func moveCrateMover9000() string {
+func crateMover9000() string {
 	crates := make([][]string, 9)
 
 	s := utils.GetScanner("input.txt")
@@ -26,7 +26,7 @@ func moveCrateMover9000() string {
 	return getTopCrates(crates)
 }
 
-func moveCrateMover9001() string {
+func crateMover9001() string {
 	crates := make([][]string, 9)
 
 	s := utils.GetScanner("input.txt")
