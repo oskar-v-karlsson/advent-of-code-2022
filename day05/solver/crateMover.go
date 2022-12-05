@@ -43,6 +43,7 @@ func crateMover9001() string {
 	return getTopCrates(crates)
 }
 
+// Returns initial setup of crates as a 2d matrix
 func parseCrates(s *bufio.Scanner, crates [][]string) {
 	for i := 0; i < len(crates); i++ {
 		s.Scan()
@@ -62,21 +63,23 @@ func parseActions(action string) (int, int, int) {
 	return number, from - 1, to - 1
 }
 
+// Move crates one at a time
 func moveCrates(number, from, to int, crates [][]string) {
 	for i := 0; i < number; i++ {
 		topCrateIndex := len(crates[from]) - 1
 		crates[to] = append(crates[to], crates[from][topCrateIndex])
-		// Remove moved element
+		// Remove moved crate
 		crates[from] = crates[from][:len(crates[from])-1]
 	}
 }
 
+// Move multiple crates while keeping order
 func moveMultipleCrates(number, from, to int, crates [][]string) {
 	for i := number; i > 0; i-- {
 		crateToBeMoved := len(crates[from]) - i
 		crates[to] = append(crates[to], crates[from][crateToBeMoved])
 	}
-	// Remove moved elements
+	// Remove moved crates
 	crates[from] = crates[from][:len(crates[from])-number]
 }
 
