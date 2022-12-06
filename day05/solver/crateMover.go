@@ -12,7 +12,7 @@ import (
 func crateMover9000() string {
 	crates := make([][]string, 9)
 
-	s := utils.GetScanner("input.txt")
+	s := utils.GetScanner("./day05/input.txt")
 	defer utils.CloseOS()
 
 	parseCrates(s, crates)
@@ -29,7 +29,7 @@ func crateMover9000() string {
 func crateMover9001() string {
 	crates := make([][]string, 9)
 
-	s := utils.GetScanner("input.txt")
+	s := utils.GetScanner("./day05/input.txt")
 	defer utils.CloseOS()
 
 	parseCrates(s, crates)
