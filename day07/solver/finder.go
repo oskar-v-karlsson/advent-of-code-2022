@@ -10,7 +10,7 @@ import (
 )
 
 func CalcSmallDirectories() (int, int) {
-	s := utils.GetScanner("input.txt")
+	s := utils.GetScanner("./day07/input.txt")
 	defer utils.CloseOS()
 
 	sum, dirSize, _ := recursive(s, 0, 30000000, 30000000)
@@ -19,7 +19,7 @@ func CalcSmallDirectories() (int, int) {
 }
 
 func CalcDeletable(dirSize int) int {
-	s := utils.GetScanner("input.txt")
+	s := utils.GetScanner("./day07/input.txt")
 	defer utils.CloseOS()
 
 	reqSpace := 30000000 - (70000000 - dirSize)
