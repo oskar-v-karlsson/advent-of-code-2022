@@ -6,7 +6,7 @@ import (
 
 func GetStartOf(distinct int) int {
 	// TODO Change path
-	s := utils.GetScanner("input.txt")
+	s := utils.GetScanner("./day06/input.txt")
 
 	s.Scan()
 
