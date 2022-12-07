@@ -5,8 +5,8 @@ import (
 )
 
 func GetStartOf(distinct int) int {
-	// TODO Change path
 	s := utils.GetScanner("./day06/input.txt")
+	defer utils.CloseOS()
 
 	s.Scan()
 
