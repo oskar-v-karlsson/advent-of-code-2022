@@ -1,6 +1,7 @@
 package solver
 
 import (
+	"fmt"
 	"strconv"
 	"strings"
 
@@ -25,6 +26,24 @@ func signalStrength() int {
 	}
 
 	return sum
+}
+
+func drawCRT() {
+	queue := loadCommands("input.txt")
+	x := 1
+	duringVal := 0
+
+	for i := 0; i < 6; i++ {
+		for y := 0; y < 40; y++ {
+			duringVal, queue = executeCommands(1, &x, queue)
+			if duringVal-1 == y || duringVal == y || duringVal+1 == y {
+				fmt.Print("#")
+			} else {
+				fmt.Print(".")
+			}
+		}
+		fmt.Println()
+	}
 }
 
 // Loads commands from file into queue
