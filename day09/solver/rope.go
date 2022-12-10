@@ -78,39 +78,3 @@ func checkNeighbour(head ropeEnd, tail ropeEnd) bool {
 	}
 	return true
 }
-
-/*func expandMap(head, tail *ropeEnd, visited *[][]bool) bool {
-	switch {
-	case head.x == 0:
-		*visited = append([][]bool{{false}}, *visited...)
-		head.x += 1
-		head.prevX += 1
-		tail.x += 1
-		return true
-	case head.x == len(*visited)-1:
-		*visited = append(*visited, [][]bool{{false}}...)
-		return true
-	case head.y == 0:
-		for i := range *visited {
-			(*visited)[i] = append([]bool{false}, (*visited)[i]...)
-		}
-		head.y += 1
-		head.prevY += 1
-		tail.y += 1
-		return true
-	case head.y == len((*visited)[0])-1:
-		for i := range *visited {
-			(*visited)[i] = append((*visited)[i], false)
-		}
-		return true
-	default:
-		return false
-	}
-}*/
-
-/*
-	x x x x x
-	x x x x x
-	x x x T x
-	x x E x x
-*/
