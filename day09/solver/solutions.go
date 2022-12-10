@@ -2,6 +2,7 @@ package solver
 
 import "fmt"
 
-func Solve1() {
-	fmt.Printf("The short rope's tail visits: %v coordinates", SumVisited())
+func Solve() {
+	fmt.Printf("The short rope's tail visits: %v coordinates\n", SumVisited())
+	fmt.Printf("The long rope's tail visits: %v coordinates\n", SumVisitedLong())
 }
