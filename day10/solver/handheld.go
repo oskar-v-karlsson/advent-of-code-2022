@@ -13,7 +13,7 @@ func signalStrength() int {
 	sum := 0
 	x := 1
 	duringVal := 0
-	queue := loadCommands("input.txt")
+	queue := loadCommands("./day10/input.txt")
 
 	duringVal, queue = executeCommands(20, &x, queue)
 	counter += 20
@@ -29,7 +29,7 @@ func signalStrength() int {
 }
 
 func drawCRT() {
-	queue := loadCommands("input.txt")
+	queue := loadCommands("./day10/input.txt")
 	x := 1
 	duringVal := 0
 
