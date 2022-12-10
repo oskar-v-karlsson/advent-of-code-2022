@@ -1,14 +1,13 @@
 package solver
 
 import (
-	"fmt"
 	"strconv"
 	"strings"
 
 	"github.com/Zairian/advent-of-code-2022/utils"
 )
 
-func signalStrength() {
+func signalStrength() int {
 	counter := 0
 	sum := 0
 	x := 1
@@ -25,7 +24,7 @@ func signalStrength() {
 		sum += counter * duringVal
 	}
 
-	fmt.Println(sum)
+	return sum
 }
 
 // Loads commands from file into queue
