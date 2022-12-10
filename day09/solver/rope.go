@@ -18,7 +18,7 @@ func SumVisited() int {
 	visited := map[string]bool{"0, 0": true}
 	var h, t ropeEnd
 
-	s := utils.GetScanner("input.txt")
+	s := utils.GetScanner("./day09/input.txt")
 	defer utils.CloseOS()
 
 	for s.Scan() {
@@ -40,7 +40,7 @@ func SumVisitedLong() int {
 	var h ropeEnd
 	t := make([]ropeEnd, 9)
 
-	s := utils.GetScanner("input.txt")
+	s := utils.GetScanner("./day09/input.txt")
 	defer utils.CloseOS()
 
 	for s.Scan() {
