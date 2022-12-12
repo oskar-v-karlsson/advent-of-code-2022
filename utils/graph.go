@@ -28,7 +28,7 @@ func (g *graph) getEdges(node string) []edge {
 	return g.nodes[node]
 }
 
-// Calculates and returns the shortest path using Dijkstra's Algorithm
+// Calculates and returns the shortest path using Dijkstra's Algorithm. Returns 0 if no path found.
 func (g *graph) GetPath(origin, destiny string) (int, []string) {
 	h := newHeap()
 	h.push(path{value: 0, nodes: []string{origin}})
